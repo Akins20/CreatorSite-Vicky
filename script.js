@@ -8,11 +8,12 @@ const pictures = [
 
 // Array of video sources
 const videos = [
-    'https://cors-anywhere.herokuapp.com/https://youtu.be/Zjl2vmy02As',
-    'https://cors-anywhere.herokuapp.com/https://youtu.be/zXtHNpT6MJk',
-    'https://cors-anywhere.herokuapp.com/https://youtu.be/t5RcEsvdMIc',
+    'https://www.youtube.com/embed/Zjl2vmy02As',
+    'https://www.youtube.com/embed/zXtHNpT6MJk',
+    'https://www.youtube.com/embed/pCeYZ7eaeIw',
     // Add more video URLs as needed
 ];
+
 
 
 function addImageToGallery(src) {
@@ -24,7 +25,9 @@ function addImageToGallery(src) {
     img.alt = 'New Image';
     img.width = 400;
     img.height = 300;
-    img.className = ""
+    img.className = "";
+    img.id = "one";
+    img.addEventListener('click', () => toggleFullScreen(src));
     galleryItem.appendChild(img);
     gallery.appendChild(galleryItem);
 }
@@ -54,7 +57,7 @@ let currentVideoIndex = 0;
 // Function to play the current video
 function playVideo() {
     videoPlayer.src = videos[currentVideoIndex];
-    videoPlayer.play();
+   
 }
 
 // Event listeners for previous and next buttons
@@ -68,9 +71,31 @@ nextBtn.addEventListener('click', () => {
     playVideo();
 });
 
+// JavaScript for toggling fullscreen image
+function toggleFullScreen(imageSrc) {
+    const modal = document.getElementById('fullscreen-modal');
+    const image = document.getElementById('fullscreen-image');
+
+    if (modal.style.display === 'block') {
+        // Close fullscreen
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Enable scrolling on the body
+    } else {
+        // Open fullscreen
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Disable scrolling on the body
+        image.src = imageSrc;
+    }
+}
+
+// Close fullscreen if the modal is clicked or if the user clicks outside the image
+document.getElementById('fullscreen-modal').addEventListener('click', function (event) {
+    if (event.target === this) {
+        toggleFullScreen();
+    }
+});
+
+
+
 // Initial video playback
 playVideo();
-
-
-// Call the function to load content when the page loads
-window.addEventListener('load', loadContent);
