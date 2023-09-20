@@ -1,8 +1,8 @@
 
 const pictures = [
-    'https://w0.peakpx.com/wallpaper/960/845/HD-wallpaper-nature-landscape-landscape-nature-thumbnail.jpg',
-    'https://w0.peakpx.com/wallpaper/456/27/HD-wallpaper-nature-nature-thumbnail.jpg',
-    'https://w0.peakpx.com/wallpaper/42/267/HD-wallpaper-nature-scenery-scenery-nature-thumbnail.jpg'
+    'assets/img2.jpeg',
+    'assets/img3.jpeg',
+    'assets/img5.jpeg'
     // Add more image URLs here
 ];
 
@@ -23,7 +23,7 @@ function addImageToGallery(src) {
     const img = document.createElement('img');
     img.src = src;
     img.alt = 'New Image';
-    img.width = 400;
+    img.width = 300;
     img.height = 300;
     img.className = "";
     img.id = "one";

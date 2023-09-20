@@ -5,6 +5,7 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
@@ -76,17 +77,23 @@ section {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .gallery-item {
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease-in-out;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    transition: transform 0.4s ease-in-out;
+    cursor: pointer;
+    border-style: double;
+    border-style: outset;
+    
+
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.10);
+    box-shadow: 0 0 15px rgba(246, 246, 246, 0.545);
 }
 
 /* Style your video carousel here */
@@ -135,6 +142,12 @@ section {
 
 .img-fluid {
     max-width: 100%;
+}
+
+.profile-image{
+    height: 40vh;
+    width: 15vw;
+    margin-left: 3vw;
 }
 
 h1 {
@@ -291,6 +304,7 @@ p {
     z-index: 1000;
     text-align: center;
     overflow: auto;
+    transition: 1s;
 }
 
 #fullscreen-image {
@@ -298,5 +312,6 @@ p {
     max-height: 100%;
     margin: auto;
     display: block;
+    transition: 1s;
     border-radius: 180px;
 }
